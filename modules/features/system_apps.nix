@@ -7,20 +7,29 @@
     nixpkgs.config.allowUnfree = true;
 
     environment.systemPackages = with pkgs; [
+      #editors
+      vscode
       zed-editor
+      bibata-cursors      
+      
+      #terminal stuff
       git
       gh
-      flat-remix-gtk
-      flat-remix-icon-theme
-      nwg-look
-      adwaita-icon-theme
-      neovim
       fish
       starship
       eza
-      vscode
-      bibata-cursors
-      thunderbird
+      bat
+      # I hated adding this
+      fastfetch
+      
+      #themes and icons
+      flat-remix-gtk
+      flat-remix-icon-theme
+      adwaita-icon-theme
+      nwg-look
+      
+      #editors
+      neovim     
     ];
   };
 }

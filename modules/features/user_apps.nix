@@ -12,8 +12,23 @@
     };
 
     config.users.users.${userName}.packages = with pkgs; [
+      #entertainment
       spotify
       discord
+      
+      #media
+      vlc
+
+      #gaming lol
+      steam 
+      bottles
+      gamescope
+      gamemode
+      heroic
+      
+      #productivity 
+      thunderbird
+      obsidian
     ];
   };
 }

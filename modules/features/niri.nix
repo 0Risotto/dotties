@@ -260,6 +260,39 @@
               "Mod+Shift+0"."move-column-to-workspace" = 10;
               "Mod+Tab"."focus-workspace-previous" = {};
 
+              
+                  "XF86AudioRaiseVolume"."spawn-sh" =
+          "qs -c noctalia-shell ipc call volume increase";
+
+        "XF86AudioLowerVolume"."spawn-sh" =
+          "qs -c noctalia-shell ipc call volume decrease";
+
+        "XF86AudioMute"."spawn-sh" =
+          "qs -c noctalia-shell ipc call volume muteOutput";
+
+        "XF86AudioMicMute"."spawn-sh" =
+          "qs -c noctalia-shell ipc call volume muteInput";
+
+        "XF86AudioNext"."spawn-sh" =
+          "qs -c noctalia-shell ipc call media next";
+
+        "XF86AudioPrev"."spawn-sh" =
+          "qs -c noctalia-shell ipc call media previous";
+
+        "XF86AudioPlay"."spawn-sh" =
+          "qs -c noctalia-shell ipc call media playPause";
+
+        "XF86AudioPause"."spawn-sh" =
+          "qs -c noctalia-shell ipc call media playPause";
+
+        "XF86MonBrightnessUp"."spawn-sh" =
+          "qs -c noctalia-shell ipc call brightness increase";
+
+        "XF86MonBrightnessDown"."spawn-sh" =
+          "qs -c noctalia-shell ipc call brightness decrease";
+
+
+
               "Mod+D"."maximize-column" = {};
               "Mod+Ctrl+C"."center-visible-columns" = {};
               "Mod+Minus"."set-column-width" = "-10%";

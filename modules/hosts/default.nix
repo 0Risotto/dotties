@@ -6,6 +6,8 @@
       self.nixosModules.niri
       self.nixosModules.systemApps
       self.nixosModules.userApps
+      self.nixosModules.displayManager
+      self.nixosModules.appearanceDefaults
     ];
   };
 
