@@ -8,6 +8,7 @@
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
 
     silent-sddm.url = "github:uiriansan/SilentSDDM";
+    lanzaboote.url = "github:nix-community/lanzaboote";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);

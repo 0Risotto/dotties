@@ -5,7 +5,8 @@
   {
     imports = [
       self.nixosModules.legionHardware
-      self.nixosModules.nvidia    
+      self.nixosModules.nvidia
+      self.nixosModules.efi   
     ];
 
     users.users.legion = {

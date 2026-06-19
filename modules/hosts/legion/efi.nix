@@ -1,0 +1,20 @@
+{ self, inputs, ... }:
+{
+  flake.nixosModules.efi = { config, pkgs, lib, ... }:
+  {
+    imports = [
+      inputs.lanzaboote.nixosModules.lanzaboote
+    ];
+
+    environment.systemPackages = with pkgs; [
+      sbctl
+    ];
+
+    boot.loader.systemd-boot.enable = lib.mkForce false;
+
+    boot.lanzaboote = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl";
+    };
+  };
+}
