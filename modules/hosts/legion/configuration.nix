@@ -5,6 +5,7 @@
   {
     imports = [
       self.nixosModules.legionHardware
+      self.nixosModules.nvidia    
     ];
 
     users.users.legion = {
