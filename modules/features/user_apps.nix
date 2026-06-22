@@ -33,6 +33,9 @@
       obsidian
       tuxedo
 
+      #hello
+      cloudflare-warp
+      
       #ai
       pi-coding-agent
     ];

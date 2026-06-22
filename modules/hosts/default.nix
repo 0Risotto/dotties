@@ -10,6 +10,7 @@
       self.nixosModules.audio
       self.nixosModules.niri
       self.nixosModules.noctalia
+      self.nixosModules.flatpak
     ];
   };
 
