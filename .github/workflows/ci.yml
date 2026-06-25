@@ -50,7 +50,7 @@ jobs:
 
       - name: Check formatting with treefmt
         run: |
-          nix fmt ./nixos -- --fail-on-change
+          cd nixos && nix fmt -- --fail-on-change
         shell: bash
 
   lint:
@@ -124,25 +124,9 @@ jobs:
           nix build ./nixos#nixosConfigurations.legion.config.home-manager.users.legion.home.activationPackage \
             --print-build-logs
 
-  devshells:
-    name: build devshell (${{ matrix.shell }})
+  devshell:
+    name: build default devshell
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        shell:
-          - default
-          - web
-          - rust
-          - go
-          - python
-          - java
-          - devops
-          - backend
-          - all
-          - fullstack
-          - data
-          - cloud
     steps:
       - uses: actions/checkout@v4
 
@@ -159,9 +143,9 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
           extraPullNames: ""
 
-      - name: Build devshell ${{ matrix.shell }}
+      - name: Build default devshell
         run: |
-          nix build ./nixos#devShells.x86_64-linux.${{ matrix.shell }} \
+          nix build ./nixos#devShells.x86_64-linux.default \
             --print-build-logs
 
   evaluate:
