@@ -23,27 +23,19 @@
 
   outputs =
     inputs:
+    let
+      importTree =
+        dir:
+        let
+          entries = builtins.readDir dir;
+          names = builtins.attrNames entries;
+          files = builtins.filter (n: entries.${n} == "regular") names;
+          dirs = builtins.filter (n: entries.${n} == "directory") names;
+        in
+        map (n: dir + "/${n}") files ++ builtins.concatMap (n: importTree (dir + "/${n}")) dirs;
+    in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [
-        ./modules/parts.nix
-        ./modules/settings.nix
-        ./modules/hosts/common.nix
-        ./modules/hosts/default.nix
-        ./modules/hosts/legion/configuration.nix
-        ./modules/hosts/legion/hardware.nix
-        ./modules/features/efi.nix
-        ./modules/features/nvidia.nix
-        ./modules/features/display_manager.nix
-        ./modules/features/system_apps.nix
-        ./modules/features/appearance_defaults.nix
-        ./modules/features/audio.nix
-        ./modules/features/niri.nix
-        ./modules/features/noctalia.nix
-        ./modules/features/flatpak.nix
-        ./modules/features/home-manager.nix
-        ./modules/devshells/default.nix
-        inputs.treefmt-nix.flakeModule
-      ];
+      imports = importTree ./modules ++ [ inputs.treefmt-nix.flakeModule ];
 
       perSystem = { pkgs, ... }: {
         treefmt.config = {

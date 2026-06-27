@@ -1,14 +1,4 @@
 _: {
-  imports = [
-    ./web.nix
-    ./rust.nix
-    ./go.nix
-    ./python.nix
-    ./java.nix
-    ./devops.nix
-    ./backend.nix
-  ];
-
   perSystem =
     { pkgs, config, ... }:
     let
